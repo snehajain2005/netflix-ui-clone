@@ -1,0 +1,651 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #181818;
+    color: white;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('Images/the_netflix_login_background__canada__2024___by_logofeveryt_dh0w8qv-fullview.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+/* Dark Overlay */
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark Overlay */
+}
+
+/* Netflix Navbar */
+.navbar {
+    position: absolute;
+    top: 20px;
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.logo {
+    width: 150px; /* Adjust logo size */
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Language Dropdown Container */
+.language-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Button */
+.dropdown-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Dropdown Content (Initially Hidden) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 150px;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    text-align: left;
+    z-index: 1000;
+}
+
+/* Language Option Buttons */
+.language-option {
+    background: none;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.language-option:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Show Dropdown When Clicked */
+.show {
+    display: block;
+}
+
+.sign-in-btn {
+    background: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.sign-in-btn:hover {
+    background: darkred;
+}
+
+/* Hero Content */
+.hero-content {
+    z-index: 2;
+    position: relative;
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.small-text {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+/* Email Form */
+.email-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.email-form input {
+    width: 300px;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+.email-form button {
+    background: red;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.email-form button:hover {
+    background: darkred;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 35px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .email-form {
+        flex-direction: column;
+    }
+
+    .email-form input,
+    .email-form button {
+        width: 100%;
+    }
+}
+
+
+
+.container {
+    max-width: 1200px;
+    width: 95%;
+}
+
+.slider-wrapper {
+    position: relative;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.slider-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-wrapper .slider-button {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    color: #fff;
+    border: none;
+    outline: none;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.slider-wrapper .slider-button:hover {
+    background: #444;
+}
+
+.slider-wrapper .slider-button#prev-slide {
+    left: 10px;
+}
+
+.slider-wrapper .slider-button#next-slide {
+    right: 10px;
+}
+
+.slider-wrapper .image-list {
+    display: flex;
+    gap: 18px;
+    font-size: 0px;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 10px 0;
+}
+
+.slider-wrapper .image-list::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-wrapper .image-list .image-item {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-item:hover {
+    transform: scale(1.1);
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-number {
+    position: absolute;
+    bottom: 10px;
+    left: -10px;
+    font-size: 100px;
+    font-weight: bold;
+    color:black;
+    text-shadow: 
+    -2px -2px 0 white, 
+    -2px 2px 0 white, 
+    2px -2px 0 white, 
+    2px 2px 0 white; 
+    background: none;
+    padding: 0px;
+    border-radius: 0px;
+
+}
+
+
+.features {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.features h2 {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.feature-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.feature-box {
+    background: #222;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 260px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.feature-box p {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+body {
+    background-color: #181818;
+    color: white;
+}
+
+.feature-box::after {
+    content: "🎬";
+    font-size: 30px;
+    margin-bottom: 10px;
+    
+}
+
+.feature-box:nth-child(1)::after {
+    content: "📺";
+    right: 30px;
+}
+
+.feature-box:nth-child(2)::after {
+    content: "⬇️";
+}
+
+.feature-box:nth-child(3)::after {
+    content: "📱";
+}
+
+.feature-box:nth-child(4)::after {
+    content: "👦";
+}
+/* FAQ Section */
+/* FAQ Section */
+.faq {
+    max-width: 1100px; /* Ensures FAQ stays within a controlled width */
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* FAQ Container */
+.faq-container {
+    text-align: left;
+    width: 100%;
+}
+
+/* FAQ Item - Adjusted Width & Centered */
+.faq-item {
+    width: 80%; /* Matches Netflix width */
+    max-width: 900px; /* Ensures it doesn’t stretch too much */
+    margin: 10px auto; /* Centers the boxes */
+}
+
+/* FAQ Question Box - Increased Size */
+.faq-question {
+    width: 100%;
+    background-color: #303030;
+    color: white;
+    padding: 24px; /* Increased padding for height */
+    font-size: 22px; /* Larger font size */
+    font-weight: bold;
+    text-align: left;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #444;
+}
+
+/* FAQ Answer - Larger & More Spacing */
+.faq-answer {
+    background-color: #181818;
+    color: white;
+    padding: 24px;
+    display: none;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* Plus Icon - Bigger */
+.plus {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Email Subscription Section */
+.email-box {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.email-box p {
+    font-size: 20px; /* Larger text */
+    margin-bottom: 20px;
+}
+
+/* Email Form */
+.email-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Email Input */
+.email-form input {
+    width: 350px; /* Increased width */
+    padding: 14px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+}
+
+/* Get Started Button */
+.email-form button {
+    background-color: red;
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.email-form button:hover {
+    background-color: darkred;
+}
+
+/* 🔥 Responsive Adjustments */
+@media (max-width: 1200px) {
+    .faq-item {
+        width: 90%; /* Slightly wider on medium screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .faq-item {
+        width: 95%;
+    }
+
+    .faq-question {
+        font-size: 20px;
+        padding: 20px;
+    }
+
+    .faq-answer {
+        font-size: 18px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .faq-item {
+        width: 100%;
+    }
+
+    .faq-question {
+        font-size: 18px;
+        padding: 18px;
+    }
+
+    .faq-answer {
+        font-size: 16px;
+        padding: 18px;
+    }
+
+    .plus {
+        font-size: 26px;
+    }
+
+    .email-form {
+        flex-direction: column; /* Stack email input and button */
+        gap: 10px;
+    }
+
+    .email-form input {
+        width: 90%; /* Full width on smaller screens */
+    }
+
+    .email-form button {
+        width: 90%;
+    }
+}
+
+
+/* Email Box */
+.email-box {
+    margin-top: 30px;
+}
+
+.email-box p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Email Form */
+.email-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Increased gap between input and button */
+    
+}
+
+/* Email Input */
+.email-form input {
+    width: 300px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    border-radius: 5px; /* Slightly rounded corners */
+    background: none;
+}
+
+/* Get Started Button */
+.email-form button {
+    background-color: red; /* Netflix Red */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px; /* Rounded button */
+    transition: 0.3s ease-in-out;
+    margin-left: 10px; /* Additional gap from the input */
+}
+
+/* Hover Effect */
+.email-form button:hover {
+    background-color: darkred;
+}
+
+/* Footer Styles */
+.footer {
+    background:none;
+    color: white;
+    padding: 40px 15px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Contact Text */
+.footer p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: underline;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Footer Links Grid */
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+}
+
+/* Language Dropdown */
+.footer-language {
+    margin-top: 20px;
+}
+
+.footer-language select {
+    background:none;
+    color: white;
+    border: 1px solid white;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer Note */
+.footer-note {
+    margin-top: 20px;
+    font-size: 14px;
+    color: gray;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-links {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
